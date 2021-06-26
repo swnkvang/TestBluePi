@@ -1,0 +1,65 @@
+
+from config.lib import *
+from method.rungame import *
+from method.player_account import *
+
+class Item_RunGame(BaseModel):
+    id_game: str
+    RowsClick: int
+    ColsClick: int
+
+@app.post("/game/login")
+def login():
+    result = create_account()
+    if result[0] == True:
+        data = {
+            "token" : result[1]
+        }
+        return {"result": "OK", "data": data, "messageER": None}
+    else :
+        return {"result": "ER", "data": None, "messageER": result[1]}
+
+@app.post("/game/start")
+def newgame(request: Request):
+    try :
+        token = request.headers['authorization']
+        token = token.split(' ')[1]
+        result_authen = authen_account(token)
+        if result_authen[0] == True :
+            account_id = result_authen[1]
+            result_createGame = new_game(account_id)
+            if result_createGame[0] == True :
+                return {"result": "OK", "data": result_createGame[1], "messageER": None}
+            else :
+                return {"result": "ER", "data": None, "messageER": result_createGame[1]}
+        else :
+            return {"result": "ER", "data": None, "messageER": result_authen[1]}
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return {"result": "ER", "data": None, "messageER": str(e)}
+
+@app.post("/game/run")
+def read_root(request: Request, body: Item_RunGame):
+    try :
+        token = request.headers['authorization']
+        token = token.split(' ')[1]
+        result_authen = authen_account(token)
+        if result_authen[0] == True :
+            account_id = result_authen[1]
+            id_game = body.id_game
+            RowsClick = body.RowsClick
+            ColsClick = body.ColsClick
+            result_playGame= play_game(account_id,id_game,RowsClick,ColsClick)
+            if result_playGame[0] == True :
+                return {"result": "OK", "data": result_playGame[1], "messageER": None}
+            else :
+                return {"result": "ER", "data": None, "messageER": result_playGame[1]}
+        else :
+            return {"result": "ER", "data": None, "messageER": result_authen[1]}
+    except Exception as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return {"result": "ER", "data": None, "messageER": str(e)}
