@@ -8,17 +8,6 @@ class Item_RunGame(BaseModel):
     RowsClick: int
     ColsClick: int
 
-@app.post("/game/login")
-def login():
-    result = create_account()
-    if result[0] == True:
-        data = {
-            "token" : result[1]
-        }
-        return {"result": "OK", "data": data, "messageER": None}
-    else :
-        return {"result": "ER", "data": None, "messageER": result[1]}
-
 @app.post("/game/start")
 def newgame(request: Request):
     try :
@@ -41,7 +30,7 @@ def newgame(request: Request):
         return {"result": "ER", "data": None, "messageER": str(e)}
 
 @app.post("/game/run")
-def read_root(request: Request, body: Item_RunGame):
+def rungame(request: Request, body: Item_RunGame):
     try :
         token = request.headers['authorization']
         token = token.split(' ')[1]
@@ -51,6 +40,8 @@ def read_root(request: Request, body: Item_RunGame):
             id_game = body.id_game
             RowsClick = body.RowsClick
             ColsClick = body.ColsClick
+            if (id_game == '' or id_game == None) :
+                return {"result": "ER", "data": None, "messageER": 'please enter id_game'}
             result_playGame= play_game(account_id,id_game,RowsClick,ColsClick)
             if result_playGame[0] == True :
                 return {"result": "OK", "data": result_playGame[1], "messageER": None}
