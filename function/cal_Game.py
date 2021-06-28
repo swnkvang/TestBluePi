@@ -32,8 +32,10 @@ def cal_GlobalBestScore():
             "status_game": 'Win'
         },{"count_click": 1,"_id": 0}).sort("count_click", 1).limit(1)
         data = list(result_query)
+        print(data)
         if len(list(data)) != 0 :
             GlobalBestScore = data[0]['count_click']
+        print('GlobalBestScore',GlobalBestScore)
         return [True,GlobalBestScore]
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -41,11 +43,11 @@ def cal_GlobalBestScore():
         print(exc_type, fname, exc_tb.tb_lineno)
         return [False,str(e)]
 
-def cal_BestScorePlayer(account_id):
+def cal_BestScorePlayer(username):
     try :
         BestScorePlayer = None
         result_query = col_transaction_game.find({
-            "account_id": account_id,
+            "username": username,
             "status_game": 'Win'
         },{"count_click": 1,"_id":0}).sort("count_click", 1).limit(1)
         data = list(result_query)
@@ -96,6 +98,11 @@ def calBoxGame(box,RowsOpenLatest,ColsOpenLatest,RowsClick,ColsClick):
             "ColsOpenLatest": ColsOpenLatest
         }
         return [True,data_return]
+    except IndexError as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return [False,'Rows or Cols is Incorrect']
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]

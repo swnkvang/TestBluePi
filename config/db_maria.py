@@ -19,8 +19,10 @@ def insertSQL(sql,value):
         cur = conn.cursor()
         cur.execute(sql,value)
         conn.commit()
+        return [True,'insert success']
     except mariadb.Error as e:
         print(f"Error connecting to MariaDB Platform: {e}")
+        return [False, str(e)]
         
 
 def selectSQL(sql,value):

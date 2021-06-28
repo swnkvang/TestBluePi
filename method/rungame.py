@@ -2,7 +2,7 @@ from config.lib import *
 from config.db_mongo import *
 from function.cal_Game import *
 
-def new_game(account_id):
+def new_game(username):
     try :
         best_score = None
         globalBest_Score = None
@@ -21,7 +21,7 @@ def new_game(account_id):
                     "status_open": status_open
                 }
         mydict = {
-                "account_id": account_id, 
+                "username": username, 
                 "box": box_game,
                 "count_click": count_click,
                 "RowsOpenLatest": None,
@@ -34,7 +34,7 @@ def new_game(account_id):
         result_calGlobalBestScore= cal_GlobalBestScore()
         if result_calGlobalBestScore[0] == True:
             globalBest_Score = result_calGlobalBestScore[1]
-        result_calScorePlayer = cal_BestScorePlayer(account_id)
+        result_calScorePlayer = cal_BestScorePlayer(username)
         if result_calScorePlayer[0] == True:
             best_score = result_calScorePlayer[1]
         data_return = {
@@ -50,11 +50,16 @@ def new_game(account_id):
         print(exc_type, fname, exc_tb.tb_lineno)
         return [False,str(e)]
 
-def play_game(account_id,id_game,RowsClick,ColsClick):
+def play_game(username,id_game,RowsClick,ColsClick):
     try:
         best_score = None
         globalBest_Score = None
-        result_game = col_transaction_game.find_one({"_id": ObjectId(id_game)})
+        result_game = col_transaction_game.find_one({
+            "_id": ObjectId(id_game),
+            "username": username
+        })
+        if (result_game == None) :
+            return [False, 'This token is not your game']
         boxOpenNow = (result_game['box'][RowsClick][ColsClick]['value'])
         box = result_game['box']
         count_click = result_game['count_click']
@@ -90,14 +95,13 @@ def play_game(account_id,id_game,RowsClick,ColsClick):
                         } }
             col_transaction_game.update_one(myquery, newvalue) 
 
-            result_calScorePlayer = cal_BestScorePlayer(account_id)
+            result_calScorePlayer = cal_BestScorePlayer(username)
             if result_calScorePlayer[0] == True:
                 best_score = result_calScorePlayer[1]
             
             result_calGlobalBestScore = cal_GlobalBestScore()
             if result_calGlobalBestScore[0] == True:
                 globalBest_Score = result_calGlobalBestScore[1]
-
         boxClose = box
         for i in range(len(boxClose)):
                 for j in range(len(boxClose[i])):
@@ -113,6 +117,11 @@ def play_game(account_id,id_game,RowsClick,ColsClick):
             "boxOpenNow": boxOpenNow
         }
         return [True,data_return]
+    except IndexError as e:
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+        print(exc_type, fname, exc_tb.tb_lineno)
+        return [False,'Rows or Cols is Incorrect']
     except Exception as e:
         exc_type, exc_obj, exc_tb = sys.exc_info()
         fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
