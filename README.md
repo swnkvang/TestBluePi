@@ -115,8 +115,12 @@
         ```javascript
         $ sudo apt-get install docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io
         ```
-    - ### ใช้สำหรับตรวจสอบว่า docker ถูกติดตั้งเเล้วหรือยัง
+    - ### คำสั่งตรวจสอบว่า docker ถูกติดตั้งเเล้วหรือยัง
     ```javascript
     $ sudo docker run hello-world
+    ```
+    - ### Install Docker Compose
+    ```javascript
+    $ sudo apt install docker-compose
     ```
     
