@@ -116,11 +116,19 @@
         $ sudo apt-get install docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io
         ```
     - ### คำสั่งตรวจสอบว่า docker ถูกติดตั้งเเล้วหรือยัง
-    ```javascript
-    $ sudo docker run hello-world
-    ```
+        ```javascript
+        $ sudo docker run hello-world
+        ```
     - ### Install Docker Compose
-    ```javascript
-    $ sudo apt install docker-compose
-    ```
-    
+        ```javascript
+        $ sudo apt install docker-compose
+        ```
+    - ### build Docker Compose
+        ```javascript
+        $ docker-compose up -d --build
+        ```
+    - ### ขั้นตอนการ Deployment Docker
+        1. clone git
+        ```javascript
+        $ git clone https://github.com/swnkvang/TestBluePi.git
+        ```
