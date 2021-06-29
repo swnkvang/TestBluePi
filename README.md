@@ -128,7 +128,7 @@
         $ docker-compose up -d --build
         ```
     - ### ขั้นตอนการ Deployment Docker
-        1. clone git
+        1.clone git
             ```javascript
             $ git clone https://github.com/swnkvang/TestBluePi.git
             ```
