@@ -62,6 +62,14 @@
         https://documenter.getpostman.com/view/12061603/Tzef9NQA
     ```
 - ## Description Project
+    - **main.py** เป็นไฟล์ที่ใช้ในการ Run Project โดยสามารถใช้คำสั่งด้านล่าง
+        ```javascript
+            python main.py
+        ```
+    - **requirements.txt** เป็นไฟล์ที่เก็บข้อมูล library ต่าง ๆ เพื่อใช้ใน Project โดยสามารถใช้คำสั่งด้านล่างเพื่อใช้ในการ install library ได้ทั้งหมด
+        ```javascript
+            python -m pip install -r requirements.txt
+        ```
     - **Folder**
         - **api** : เป็น Folder สำหรับเก็บ file api ทั้งหมด
             - **file**
@@ -98,8 +106,4 @@
                 - rungame.py เป็น file การทำงานหลักในการประมวลผลเกมส์
                     - **new_game** เมื่อผู้เล่นกดเริ่มเกมส์ใหม่จะทำการสร้างเกมส์ใหม่ให้ผู้เล่น
                     - **play_game** เมื่อผู้เล่นคลิกเปิดไพ่จะมีการประมวลผลสถานะการเปิด/ปิดของไพ่
-    - **main.py** เป็นไฟล์ที่ใช้ในการ Run Project
-    - **requirements.txt** เป็นไฟล์ที่เก็บข้อมูล library ต่าง ๆ เพื่อใช้ใน Project โดยสามารถใช้คำสั่งด้านล่างเพื่อใช้ในการ install library ได้ทั้งหมด
-        ```javascript
-            python -m pip install -r requirements.txt
-        ```
+    
