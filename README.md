@@ -59,6 +59,8 @@
 - ## Description Project
     - Folder
         - api : เป็น Folder สำหรับเก็บ file เกี่ยวกับ api ทั้งหมด
+            - file
+                - api_game เป็น file api ที่ใช้สำหรับประม
         - config  : เป็น Folder สำหรับเก็บ file ที่เกี่ยวกับการ config ต่าง ๆ ทั้งหมด
         - function : เป็น Folder สำหรับเก็บ file ที่แยกส่วนการทำงานออกมาเพื่อใช้คำนวณต่าง ๆ
         - method : เป็น Folder ที่ใช้สำหรับเก็บ file ที่เป็นการทำงานหลักที่ถูกส่งต่อมาจาก api
