@@ -109,10 +109,10 @@
                     - **new_game** เมื่อผู้เล่นกดเริ่มเกมส์ใหม่จะทำการสร้างเกมส์ใหม่ให้ผู้เล่น
                     - **play_game** เมื่อผู้เล่นคลิกเปิดไพ่จะมีการประมวลผลสถานะการเปิด/ปิดของไพ่
         - **DocumentProject** เป็น Folder ที่ใช้เก็บข้อมูลและคำอธิบายต่าง ๆ สำหรับ project
-            **Api_Postman** เป็นโฟลเดอร์สำหรับเก็บ collection API เพื่อนำไปทดสอบ
-                **BluePi.postman_collection.json** ไฟล์ collection API สามารถนำไป import ในโปรเเกรม postman เพื่อทดสอบได้
-            **Url_Public_Postman** เป็นโฟลเดอร์สำหรับเก็บไฟล์ข้อมูล url public postman
-                **url_postman.txt** ไฟล์ txt ซึ่งในไฟล์จะเป็น url public postman สามารถเข้าไปดูคำอธิบายเพิ่มเติมเกี่ยวกับ API ได้
+            - **Api_Postman** เป็นโฟลเดอร์สำหรับเก็บ collection API เพื่อนำไปทดสอบ
+                - **BluePi.postman_collection.json** ไฟล์ collection API สามารถนำไป import ในโปรเเกรม postman เพื่อทดสอบได้
+            - **Url_Public_Postman** เป็นโฟลเดอร์สำหรับเก็บไฟล์ข้อมูล url public postman
+                - **url_postman.txt** ไฟล์ txt ซึ่งในไฟล์จะเป็น url public postman สามารถเข้าไปดูคำอธิบายเพิ่มเติมเกี่ยวกับ API ได้
             
 - ## Deployment
     - ### Using Docker as deployment tool
