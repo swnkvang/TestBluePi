@@ -110,5 +110,13 @@
                     - **play_game** เมื่อผู้เล่นคลิกเปิดไพ่จะมีการประมวลผลสถานะการเปิด/ปิดของไพ่
 
 - ## Deployment
-    - ใช้
+    - ### Using Docker as deployment tool
+    - ### Install Docker
+        ```javascript
+        $ sudo apt-get install docker-ce-20.10.5 docker-ce-cli-20.10.5 containerd.io
+        ```
+    - ### ใช้สำหรับตรวจสอบว่า docker ถูกติดตั้งเเล้วหรือยัง
+    ```javascript
+    $ sudo docker run hello-world
+    ```
     
