@@ -11,7 +11,7 @@
 ## ข้อกำหนดเบื้องต้น
 - ### Programming Language
     - Python 3.7
-- ### database
+- ### Database
     - MariaDB
         - database name  :  gamematching
         - table
@@ -21,10 +21,10 @@
         - database name : game_math
         - collection
             - transaction_game
-- ### Constructor 
+- ### Constructor Database
     - MariaDB
         - สร้าง database โดยใช้ชื่อ : gamematching
-        - สร้าง table 
+        - สร้าง table โดยใช้คำสั่งด้านล่าง
 			- tb_player_account
 			```javascript
 			 CREATE TABLE `tb_player_account` (
@@ -48,6 +48,12 @@
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
             ```
     - MongoDB
-        - สร้าง database โดยใช้ชื่อ game_match
+        - สร้าง database โดยใช้ชื่อ : game_match
         - สร้าง collection โดยใช้ชื่อ : transaction_game
+
+- ### API Document
+    - สามารถดูคำอธิบายเกี่ยวกับการใช้งาน API เบื้องต้นได้ที่ลิงค์ด้านล่าง
+     ```javascript
+        https://documenter.getpostman.com/view/12061603/Tzef9NQA
+    ```
 
