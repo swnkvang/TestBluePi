@@ -105,10 +105,15 @@
                     - **create_account** เป็นการทำงานในส่วนของการสร้างบัญชีผู้เล่น
                     - **login** เป็นการทำงานในส่วนการประมวลผลการ login ของผู้เล่น
                     - **authen_account** เป็นการประมวลผล token ของ user ที่แนบมากับ API อื่น ๆ ว่า authen สำเร็จหรือไม่ เเละถอดรหัส token ได้มาเป็นข้อมูล username ของผู้เล่น 
-                - rungame.py เป็น file การทำงานหลักในการประมวลผลเกมส์
+                - **rungame.py** เป็น file การทำงานหลักในการประมวลผลเกมส์
                     - **new_game** เมื่อผู้เล่นกดเริ่มเกมส์ใหม่จะทำการสร้างเกมส์ใหม่ให้ผู้เล่น
                     - **play_game** เมื่อผู้เล่นคลิกเปิดไพ่จะมีการประมวลผลสถานะการเปิด/ปิดของไพ่
-
+        - **DocumentProject** เป็น Folder ที่ใช้เก็บข้อมูลและคำอธิบายต่าง ๆ สำหรับ project
+            **Api_Postman** เป็นโฟลเดอร์สำหรับเก็บ collection API เพื่อนำไปทดสอบ
+                **BluePi.postman_collection.json** ไฟล์ collection API สามารถนำไป import ในโปรเเกรม postman เพื่อทดสอบได้
+            **Url_Public_Postman** เป็นโฟลเดอร์สำหรับเก็บไฟล์ข้อมูล url public postman
+                **url_postman.txt** ไฟล์ txt ซึ่งในไฟล์จะเป็น url public postman สามารถเข้าไปดูคำอธิบายเพิ่มเติมเกี่ยวกับ API ได้
+            
 - ## Deployment
     - ### Using Docker as deployment tool
     - ### Install Docker
