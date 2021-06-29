@@ -4,8 +4,8 @@
 ## Table of Contents
 * [เริ่มต้นการใช้งาน](##เริ่มต้นการใช้งาน)
 * [ข้อกำหนดเบื้องต้น](##ข้อกำหนดเบื้องต้น)
-* [API Document](##API--Document)
-* [Description Project](##Description--Project)
+* [API Document](##API-Document)
+* [Description Project](##Description-Project)
 * [Deployment](##Deployment)
 
 ## เริ่มต้นการใช้งาน
