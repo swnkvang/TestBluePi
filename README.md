@@ -23,17 +23,31 @@
             - transaction_game
 - ### Constructor 
     - MariaDB
-        - สร้าง database โดยใช้ชื่อว่า gamematching
-        - สร้าง table ด้วยคำสั่ง
-        ```javascript
-        CREATE TABLE `tb_player_account` (
-        `id` varchar(36) NOT NULL DEFAULT uuid(),
-        `username` varchar(100) DEFAULT NULL,
-        `password` varchar(100) DEFAULT NULL,
-        `time_create` datetime DEFAULT current_timestamp(),
-        `secret_key` text DEFAULT NULL,
-        PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8; );
-        ```
-
+        - สร้าง database โดยใช้ชื่อ : gamematching
+        - สร้าง table 
+			- tb_player_account
+			```javascript
+			 CREATE TABLE `tb_player_account` (
+			`id` varchar(36) NOT NULL DEFAULT uuid(),
+			`username` varchar(100) DEFAULT NULL,
+			`password` varchar(100) DEFAULT NULL,
+			`time_create` datetime DEFAULT current_timestamp(),
+			`secret_key` text DEFAULT NULL,
+			PRIMARY KEY (`id`)
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8; );
+			```
+			- tb_token_player
+            ```javascript
+                CREATE TABLE `tb_token_player` (
+                `id` varchar(36) NOT NULL DEFAULT uuid(),
+                `token` text DEFAULT NULL,
+                `time_expire` datetime DEFAULT NULL,
+                `key_decode` text DEFAULT NULL,
+                `time_create` datetime DEFAULT current_timestamp(),
+                PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+            ```
+    MongoDB
+        - สร้าง database โดยใช้ชื่อ game_match
+        - สร้าง collection โดยใช้ชื่อ : transaction_game
 
