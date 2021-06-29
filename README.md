@@ -10,15 +10,15 @@
 
 ##ข้อกำหนดเบื้องต้น
 - ### Programming Language
- - Python 3.7
-- ###database
-  - MariaDB
-   - database name  :  gamematching
-   - table
-     - tb_player_account
-	 - tb_token_player
- - MongoDB
-   - database name : game_math
-   - collection
-     - transaction_game
+    - Python 3.7
+- ### database
+    - MariaDB
+        - database name  :  gamematching
+        - table
+            - tb_player_account
+            - tb_token_player
+    - MongoDB
+        - database name : game_math
+        - collection
+            - transaction_game
 
