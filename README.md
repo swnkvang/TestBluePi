@@ -63,6 +63,8 @@
      ```javascript
         https://documenter.getpostman.com/view/12061603/Tzef9NQA
      ```
+    - หมายเหตุ ถ้าเกิดลิงค์ไม่สามารถใช้งานได้ สามารถดูได้ที่ TestBluePi/DocumentProject/Document_API/เกมส์จับคู่.pdf
+    
 - ## Description Project
     - **main.py** เป็นไฟล์ที่ใช้ในการ Run Project โดยสามารถใช้คำสั่งด้านล่างในการทดสอบ Run localhost ได้
         ```javascript
@@ -113,6 +115,8 @@
                 - **BluePi.postman_collection.json** ไฟล์ collection API สามารถนำไป import ในโปรเเกรม postman เพื่อทดสอบได้
             - **Url_Public_Postman** เป็นโฟลเดอร์สำหรับเก็บไฟล์ข้อมูล url public postman
                 - **url_postman.txt** ไฟล์ txt ซึ่งในไฟล์จะเป็น url public postman สามารถเข้าไปดูคำอธิบายเพิ่มเติมเกี่ยวกับ API ได้
+            - **Document_API** เป็นโฟลเดอร์สำหรับเก็บไฟล์ PDF ที่อธิบายเกี่ยวกับข้อมูลต่าง ๆ ของ API
+                - **เกมส์จับคู่.pdf** ไฟล์ PDF ที่อธิบายเกี่ยวกับ API 
             
 - ## Deployment
     - ### Using Docker as deployment tool
