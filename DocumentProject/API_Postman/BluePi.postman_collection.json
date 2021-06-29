@@ -1,0 +1,608 @@
+{
+	"info": {
+		"_postman_id": "5a0813a5-ce1e-435d-954c-7099dfd45402",
+		"name": "BluePi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create  account player",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"kvang\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlGameMatch}}/game/createplayer",
+					"host": [
+						"{{urlGameMatch}}"
+					],
+					"path": [
+						"game",
+						"createplayer"
+					]
+				},
+				"description": "<B> API Create Account Player </B> <br />\n<p><B>Description </B><br />\n- ใช้สำหรับสร้างบัญชีผู้เล่นสำหรับเล่นเกมส์</p><br />\n\n<B>REQUEST</B><br />\n<p>\n<B>- username </B>\n<dd>Type : String\n<dd>Value : ex => \"kvang\"\n<dd>Description : กำหนด username เพื่อใช้สำหรับ API Login \n</p>\n<p>\n<B>- password</B>\n<dd> Type : String\n<dd> Value : ex => \"1234567\"\n<dd> Description : กำหนด password เพื่อใช้สำหรับ API Login\n</p><br />\n\n<B>RESPONSE</B><br />\n<p>\n<B>- result</B>\n<dd> Type : String\n<dd> Value : OK , ER\n<dd> Description : คีย์ที่ใช้บอกสถานะของ API\n</p>\n<p>\n<B>- data</B>\n<dd> Type : Object\n<dd> Value : ex => {\"message\": \"xxx\", \"username\": \"xxx\"}\n<dd> Description : \nข้อความจากการยิง API สร้างบัญชีผู้เล่นว่าสำเร็จหรือไม่ ,พร้อม username ที่สร้างสำเร็จ\n</p>"
+			},
+			"response": [
+				{
+					"name": "ตัวอย่าง API (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kvang\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/createplayer",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"createplayer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:16:43 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "102"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"OK\",\n    \"data\": {\n        \"message\": \"create account player success\",\n        \"username\": \"kvang\"\n    },\n    \"messageER\": null\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (ER)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kvang\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/createplayer",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"createplayer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:17:48 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "99"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"This name cannot be used because the user already has it.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"kvang\",\r\n    \"password\": \"1234567899\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlGameMatch}}/game/login",
+					"host": [
+						"{{urlGameMatch}}"
+					],
+					"path": [
+						"game",
+						"login"
+					]
+				},
+				"description": "<B> API Login </B> <br />\n\n<p><B>Description </B><br />\n- ใช้สำหรับ login เพื่อนำ Response Key : token ไปใช้ในการ Authen API อื่น ๆ</p><br />\n\n<B>REQUEST</B><br />\n<p>\n<B>- username </B>\n<dd>Type : String\n<dd>Value : ex => \"kvang\"\n<dd>Description : username ที่ทำการสร้างไว้จาก API create account player\n</p>\n<p>\n<B>- password</B>\n<dd> Type : String\n<dd> Value : ex => \"1234567\"\n<dd> Description : password ที่ทำการตั้งค่าไว้จาก API create account player\n</p><br />\n\n<B>RESPONSE</B><br />\n<p>\n<B>- result</B>\n<dd> Type : String\n<dd> Value : OK , ER\n<dd> Description : คีย์ที่ใช้บอกสถานะของ API\n</p>\n<p>\n<B>- data</B>\n<dd> Type : Object\n<dd> Value : ex => {\"token\": \"xxx\"}\n<dd> Description : ข้อมูล token เพื่อนำไปใช้เป็น header Bearer Token สำหรับการ Authen API อื่น ๆ\n</p>"
+			},
+			"response": [
+				{
+					"name": "ตัวอย่าง API (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kvang\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/login",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:19:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "152"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"OK\",\n    \"data\": {\n        \"token\": \"gAAAAABg2gS-6xNfpXj2HZBe1JavDl3nupvSYwCKiRqHZzDOc29zlVACMaGoe3FM0zFajsgaE8VFir0Q0OcgiDja5-eFKMo3vw==\"\n    },\n    \"messageER\": null\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (401  Unauthorized)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"kvang55\",\r\n    \"password\": \"123456788\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/login",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:22:03 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "72"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"username or password Incorrect\"\n}"
+				}
+			]
+		},
+		{
+			"name": "start game",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_GameMath}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{urlGameMatch}}/game/start",
+					"host": [
+						"{{urlGameMatch}}"
+					],
+					"path": [
+						"game",
+						"start"
+					]
+				},
+				"description": "<B> API Start Game</B> <br/>\n<p><B>Description </B><br />\n- ใช้สำหรับการกดเริ่มเกมส์ใหม่</p><br />\n\n<p><B>REQUEST</B><br/>\n<strong>-</strong></p>\n\n<B>RESPONSE :</B>  <br />\n<p>\n<B>- id_game </B> \n<dd>Type : String\n<dd>Value :  ex => \"60da07162e6159d942c0cb9e\"\n<dd>Description : คีย์ที่ใช้แทนหมายเลข transaction game ที่ผู้เล่นจะทำการเล่น<br /></p>\n<p>\n<B>- count_click </B> \n<dd>Type : Integer\n<dd>Value :  ex => 0\n<dd>Description : คีย์ที่บอกถึงจำนวนการคลิกของผู้เล่นในเกมส์นั้น ๆ \n<br /></p>\n<p>\n<B>- best_score</B> \n<dd>Type : Integer\n<dd>Value :  ex => 12\n<dd>Description : คีย์ที่บอกถึงคะเเนนที่ดีที่สุดของผู้เล่น\n<br /></p>\n<p>\n<B>- globalBest_Score</B> \n<dd>Type : Integer\n<dd>Value :  ex => 12\n<dd>Description : คีย์ที่บอกถึงคะเเนนที่ดีที่สุดในจำนวนผู้เล่นทั้งหมด"
+			},
+			"response": [
+				{
+					"name": "ตัวอย่าง API (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{urlGameMatch}}/game/start",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"start"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:23:23 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "132"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"OK\",\n    \"data\": {\n        \"id_game\": \"60da058b4b36ee935ac93157\",\n        \"count_click\": 0,\n        \"best_score\": 22,\n        \"globalBest_Score\": 12\n    },\n    \"messageER\": null\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (401 Unauthorized)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{urlGameMatch}}/game/start",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"start"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:26:18 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "54"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"Unauthorized\"\n}"
+				}
+			]
+		},
+		{
+			"name": "run game",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_GameMath}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_game\": \"60d8a3420fc6d33f090dcafc\",\r\n    \"RowsClick\": 0,\r\n    \"ColsClick\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{urlGameMatch}}/game/run",
+					"host": [
+						"{{urlGameMatch}}"
+					],
+					"path": [
+						"game",
+						"run"
+					]
+				},
+				"description": "<B> API Run Game </B> <br />\n<p><B>Description </B><br />\n- ใช้สำหรับประมวลผลเกมส์ในการเปิดไพ่แต่ละใบ \nโดยในแต่ละครั้งที่ทำการเปิดไพ่จะมีการคำนวณคู่กับไพ่ที่จะเปิดใบต่อไปว่าไพ่ทั้ง 2 ใบ มีค่าตัวเลขเป็นเลขเดียวกันหรือไม่ ถ้าเป็นเลขเดียวกันจะส่งคืนค่าสถานะของไพ่เป็นเปิดออก แต่ถ้าไม่เป็นเลขเดียวกันจะทำการส่งคืนค่าสถานะของไพ่เป็นปิด <br />\n-ทุกครั้งที่ทำการเปิดไพ่จะมีการเก็บค่าจำนวนครั้งการเปิดไพ่ โดยถ้าผู้เล่นเลือกไพ่ใบที่เปิดออกอยู่เเล้ว จะไม่ทำการเพิ่มค่าจำนวนคลิกในการเปิดไพ่ <br />\n- มีการคำนวณค่าคะเเนนของผู้เล่นที่ดีที่สุด (จำนวนการเปิดไพ่ยิ่งน้อย ยิ่งถือว่าเป็นผลคะเเนนที่ดี) <br />\n-มีการคำนวณค่าคะเเนนที่ดีที่สุดในจำนวนผู้เล่นทุกคน (จำนวนการเปิดไพ่ยิ่งน้อย ยิ่งถือว่าเป็นผลคะเเนนที่ดี) <br />\n</p><br />\n\n\n<B>REQUEST</B><br />\n<p>\n<B>id_game</B> \n<dd>Type : String\n<dd>Value : ex => \"60da07162e6159d942c0cb9e\"\n<dd>Description : คีย์ที่ใช้แทนหมายเลข transaction game ที่ผู้เล่นทำการเล่น โดยนำข้อมูลมาจาก RESPONSE API start game \n</p>\n<p>\n<B>RowsClick </B>\n<dd>Type : Integer\n<dd>Value : เลข 0 - 2\n<dd>Description : ตำเเหน่งแถวที่ผู้เล่นเลือกเปิดไพ่\n</p>\n<p>\n<B>ColsClick</B>\n<dd>Type : Integer\n<dd>Value : เลข 0 - 3\n<dd>Description : ตำเเหน่งคอลัมน์ที่ผู้เล่นเลือกเปิดไพ่\n</p>\n \n<B>RESPONSE</B> <br />\n<p>\n<B>- result</B>\n<dd> Type : String\n<dd> Value : OK , ER\n<dd> Description : คีย์ที่ใช้บอกสถานะของ API\n</p>\n\n<p>\n<B>- data</B>\n<dd> Type : Object\n<dd> Value : ex => {\"id_game\": \"xxx\",\"box\": [], \"count_click\": 2, \"best_score\": 22, \"globalBest_Score\": 12, \"StatusGame\": \"Pending\", \"boxOpenNow\": 6\n<dd> Description : ข้อมูลต่าง ๆ ที่ได้จาก API\n</p>\n\n<p>\n<B>- messageER </B>\n<dd> Type : String\n<dd> Value : ex => \"\"\n<dd> Description : คีย์ที่อธิบายถึง ERROR ที่เกิดกับ API\n</p>\n\n<p>\n<B>- id_game </B>\n<dd> Type : String\n<dd> Value : ex => \"60da07162e6159d942c0cb9e\"\n<dd> Description : คีย์ที่ใช้แทนหมายเลข transaction game ที่ผู้เล่นทำการเล่น \n</p>\n\n<p>\n<B>- box </B>\n<dd> Type : Array\n<dd> Value : ex =>  \"box\": [[{\"value\": 1,\"status_open\": true}],[{\"value\": null,\"status_open\": false}],[{\"value\": null,\"status_open\": false}]]\n<dd> Description : value(type: Integer) : ค่าตัวเลขของไพ่ในตำเเหน่งนั้น ๆ  , status_open(type: Boolean) : สถานะเปิด(true)/ปิด(false) ของไพ่ตำเเหน่งนั้น ๆ ถ้าไพ่ตำเเหน่งไหนที่ยังไม่ได้รับการเปิดแบบมีคู่จะไม่เเสดงค่าตัวเลขของไพ่ใบนั้น ๆ\n</p>\n\n\n\n<p>\n<B>- count_click </B>\n<dd> Type : Integer\n<dd> Value : ex => 10\n<dd> Description : คีย์ที่บอกจำนวนครั้งการคลิกเปิดไพ่ของผู้เล่นในเกมส์ปัจจุบัน\n</p>\n\n<p>\n<B>- best_score </B>\n<dd> Type : Integer\n<dd> Value : ex => 18\n<dd> Description : คีย์ที่บอกคะเเนนที่ดีที่สุดของผู้เล่น\n</p>\n\n\n<p>\n<B>- globalBest_Score </B>\n<dd> Type : Integer\n<dd> Value : ex => 12\n<dd> Description : คีย์ที่บอกคะเเนนที่ดีสุดจากจำนวนผู้เล่นทั้งหมด\n</p>\n\n<p>\n<B>- StatusGame </B>\n<dd> Type : String\n<dd> Value : Pending,Win\n<dd> Description : สถานะซึ่งบอกว่าเกมส์ยังอยู่ระหว่างการเล่นหรือจบเกมส์เเล้ว, Pending => อยู่ระหว่างการเล่น , Win => คือจบเกมส์เเล้ว\n</p>\n\n<p>\n<B>- boxOpenNow </B>\n<dd> Type : Integer <dd>\n<dd> Value : ex => 1\n<dd> Description : ตัวเลขของไพ่ในตำเเหน่งที่ผู้เล่นได้ทำการคลิกเปิดไพ่\n</p>"
+			},
+			"response": [
+				{
+					"name": "ตัวอย่าง API (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_game\": \"60da07162e6159d942c0cb9e\",\r\n    \"RowsClick\": 0,\r\n    \"ColsClick\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/run",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"run"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:29:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "600"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"OK\",\n    \"data\": {\n        \"id_game\": \"60da07162e6159d942c0cb9e\",\n        \"box\": [\n            [\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": 4,\n                    \"status_open\": true\n                }\n            ],\n            [\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                }\n            ],\n            [\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                },\n                {\n                    \"value\": null,\n                    \"status_open\": false\n                }\n            ]\n        ],\n        \"count_click\": 1,\n        \"best_score\": 22,\n        \"globalBest_Score\": 12,\n        \"StatusGame\": \"Pending\",\n        \"boxOpenNow\": 4\n    },\n    \"messageER\": null\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (401 Unauthorized)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_game\": \"60da07162e6159d942c0cb9e\",\r\n    \"RowsClick\": 0,\r\n    \"ColsClick\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/run",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"run"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:31:21 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "54"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"Unauthorized\"\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (ER) กรณี token ของผู้เล่น ไม่ใช่ผู้สร้างเกมส์",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_game\": \"60d8a3420fc6d33f090dcafc\",\r\n    \"RowsClick\": 0,\r\n    \"ColsClick\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/run",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"run"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:27:49 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "69"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"This token is not your game\"\n}"
+				},
+				{
+					"name": "ตัวอย่าง API (ER) กรณีใส่ Rows,Cols เกินกว่าขนาดเริ่มต้น",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_game\": \"60da07162e6159d942c0cb9e\",\r\n    \"RowsClick\": 0,\r\n    \"ColsClick\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlGameMatch}}/game/run",
+							"host": [
+								"{{urlGameMatch}}"
+							],
+							"path": [
+								"game",
+								"run"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Mon, 28 Jun 2021 17:32:20 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "67"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": \"ER\",\n    \"data\": null,\n    \"messageER\": \"Rows or Cols is Incorrect\"\n}"
+				}
+			]
+		}
+	]
+}
