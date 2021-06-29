@@ -142,9 +142,9 @@
             ```
         - docker push
             ```javascript
-            $ docker push TestBluePi:0.0.1 .
+            $ docker push TestBluePi:0.0.1
             ```
         - docker deploy
             ```javascript
-            $ docker stack deploy -c TestBluePi:0.0.1 .
+            $ docker stack deploy -c docker-stack.yml TestBluePi
             ```
