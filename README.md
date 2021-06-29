@@ -29,14 +29,14 @@
         - สร้าง table โดยใช้คำสั่งด้านล่าง
 			- tb_player_account
 			```javascript
-			 CREATE TABLE `tb_player_account` (
-			`id` varchar(36) NOT NULL DEFAULT uuid(),
-			`username` varchar(100) DEFAULT NULL,
-			`password` varchar(100) DEFAULT NULL,
-			`time_create` datetime DEFAULT current_timestamp(),
-			`secret_key` text DEFAULT NULL,
-			PRIMARY KEY (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8; );
+                CREATE TABLE `tb_player_account` (
+                `id` varchar(36) NOT NULL DEFAULT uuid(),
+                `username` varchar(100) DEFAULT NULL,
+                `password` varchar(100) DEFAULT NULL,
+                `time_create` datetime DEFAULT current_timestamp(),
+                `secret_key` text DEFAULT NULL,
+                PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8; );
 			```
 			- tb_token_player
             ```javascript
