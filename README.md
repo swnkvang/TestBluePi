@@ -51,9 +51,16 @@
         - สร้าง database โดยใช้ชื่อ : game_match
         - สร้าง collection โดยใช้ชื่อ : transaction_game
 
-- ### API Document
+- ## API Document
     - สามารถดูคำอธิบายเกี่ยวกับการใช้งาน API เบื้องต้นได้ที่ลิงค์ด้านล่าง
      ```javascript
         https://documenter.getpostman.com/view/12061603/Tzef9NQA
     ```
+- ## Description Project
+    - Folder
+        - api : เป็น Folder สำหรับเก็บ file เกี่ยวกับ api ทั้งหมด
+        - config  : เป็น Folder สำหรับเก็บ file ที่เกี่ยวกับการ config ต่าง ๆ ทั้งหมด
+        - function : เป็น Folder สำหรับเก็บ file ที่แยกส่วนการทำงานออกมาเพื่อใช้คำนวณต่าง ๆ
+        - method : เป็น Folder ที่ใช้สำหรับเก็บ file ที่เป็นการทำงานหลักที่ถูกส่งต่อมาจาก api
+        
 
