@@ -47,7 +47,7 @@
                 PRIMARY KEY (`id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
             ```
-    MongoDB
+    - MongoDB
         - สร้าง database โดยใช้ชื่อ game_match
         - สร้าง collection โดยใช้ชื่อ : transaction_game
 
